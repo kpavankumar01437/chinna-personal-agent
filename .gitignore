@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+frontend/dist/
+npm-debug.log*
+
+# Runtime data
+runtime/
+backend/runtime/
+
+# Local secrets
+.env
+*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Packages
+DevPilot-AI-Agentathon.zip
