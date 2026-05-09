@@ -27,6 +27,16 @@ The project is built for an Agentathon-style judging flow: it is a real app, but
 
 ## Quick Start
 
+### Run On GitHub
+
+Use GitHub Codespaces for the GitHub-hosted version:
+
+[Open in GitHub Codespaces](https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1)
+
+Codespaces starts the FastAPI backend on port `8000` and the React dashboard on port `5173`. Open the forwarded `5173` port to use the dashboard.
+
+Important limitation: GitHub can run the web dashboard and backend workflow, but it cannot control your Windows desktop, listen to your local microphone, use your private AppData vault, or run the Electron tray app. Those privacy and screen-control features must run on your laptop.
+
 ### Backend
 
 ```powershell

@@ -54,6 +54,8 @@ app.add_middleware(
 @app.on_event("startup")
 async def start_desktop_listener() -> None:
     global voice_runtime
+    if not settings.desktop_voice_enabled:
+        return
     if voice_runtime is None:
         voice_runtime = VoiceRuntime(operator, run_operator_text, speaker)
     voice_runtime.start()
@@ -80,6 +82,7 @@ def health() -> dict:
         "reasoning_model": settings.openai_reasoning_model,
         "coding_model": settings.openai_coding_model,
         "remote_ai_configured": bool(settings.openai_api_key),
+        "desktop_voice_enabled": settings.desktop_voice_enabled,
         "chinna": operator.status(),
     }
 

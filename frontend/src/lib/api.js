@@ -1,4 +1,20 @@
-const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
+function resolveApiBase() {
+  if (import.meta.env.VITE_API_BASE) {
+    return import.meta.env.VITE_API_BASE;
+  }
+
+  if (typeof window !== "undefined") {
+    const { protocol, hostname } = window.location;
+    const codespacesHost = hostname.match(/^(.*)-\d+\.app\.github\.dev$/);
+    if (codespacesHost) {
+      return `${protocol}//${codespacesHost[1]}-8000.app.github.dev`;
+    }
+  }
+
+  return "http://127.0.0.1:8000";
+}
+
+const API_BASE = resolveApiBase();
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE}${path}`, {

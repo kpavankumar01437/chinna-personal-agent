@@ -390,6 +390,7 @@
           A local-first Windows desktop agent that wakes by voice, talks back, observes your screen with OCR, controls desktop actions with safety approval, and delegates software repair to a multi-agent DevPilot workflow.
         </p>
         <div class="actions">
+          <a class="button" href="https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1">Run on GitHub</a>
           <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent">Open Source Code</a>
           <a class="button secondary" href="http://127.0.0.1:5173">Open Local Dashboard</a>
           <a class="button secondary" href="https://github.com/kpavankumar01437/chinna-personal-agent/tree/main/docs">Read Docs</a>
@@ -398,8 +399,8 @@
 
       <section class="runtime-banner">
         <div>
-          <strong>This hosted page is the public preview. The real agent runs locally.</strong>
-          <p>GitHub Pages cannot run Windows screen control, Electron, FastAPI, microphone wake listener, Ollama, OCR, or your private vault. Start the app on your laptop, then use the local dashboard link.</p>
+          <strong>Run the web app on GitHub Codespaces. Run desktop control locally.</strong>
+          <p>GitHub Pages is static, but Codespaces can run the FastAPI backend and React dashboard. Windows screen control, Electron tray, microphone wake listener, Ollama, OCR, and the private vault still require your laptop.</p>
         </div>
         <span class="status" id="local-status">Checking local app</span>
       </section>
@@ -474,8 +475,9 @@
 
       <section class="section panel">
         <h2>Quick Start</h2>
-        <p>Clone the repository, install local tools, then start the backend and desktop dashboard from your Windows machine.</p>
+        <p>For GitHub-hosted execution, open Codespaces. For full private desktop control, clone the repository and run the local Windows app.</p>
         <ul>
+          <li><code>Open https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1</code></li>
           <li><code>git clone https://github.com/kpavankumar01437/chinna-personal-agent.git</code></li>
           <li><code>powershell -ExecutionPolicy Bypass -File .\scripts\setup-omnipilot.ps1</code></li>
           <li><code>cd backend; .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000</code></li>

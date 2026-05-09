@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     github_repo: str | None = Field(default=None, alias="GITHUB_REPO")
     github_base_branch: str = Field(default="main", alias="GITHUB_BASE_BRANCH")
     discord_webhook_url: str | None = Field(default=None, alias="DISCORD_WEBHOOK_URL")
+    desktop_voice_enabled: bool = Field(default=True, alias="DESKTOP_VOICE_ENABLED")
 
     root_dir: Path = Path(__file__).resolve().parents[2]
     runtime_dir: Path = root_dir / "runtime"
