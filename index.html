@@ -52,6 +52,8 @@
       }
 
       .shell {
+        display: flex;
+        flex-direction: column;
         margin: 0 auto;
         max-width: none;
         padding: clamp(18px, 2.4vw, 46px);
@@ -68,12 +70,13 @@
         box-shadow: var(--shadow);
         color: #fffaf0;
         display: grid;
-        grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-        gap: clamp(28px, 5vw, 84px);
+        grid-template-columns: 1fr;
+        gap: clamp(20px, 3vw, 34px);
         overflow: hidden;
-        min-height: min(680px, 70vh);
-        padding: clamp(30px, 4.2vw, 76px);
+        min-height: auto;
+        padding: clamp(24px, 3vw, 46px);
         position: relative;
+        order: 2;
       }
 
       .hero::after {
@@ -91,7 +94,7 @@
         align-items: center;
         display: flex;
         gap: 18px;
-        margin-bottom: 34px;
+        margin-bottom: 22px;
         position: relative;
         z-index: 1;
       }
@@ -121,7 +124,7 @@
       }
 
       h1 {
-        font-size: clamp(5rem, 8.6vw, 12rem);
+        font-size: clamp(3.4rem, 5.8vw, 7.4rem);
         letter-spacing: -0.08em;
         line-height: 0.88;
         margin: 0;
@@ -132,10 +135,10 @@
 
       .hero-copy {
         color: rgba(255, 250, 240, 0.78);
-        font-size: clamp(1.08rem, 1.15vw, 1.45rem);
+        font-size: clamp(1rem, 1vw, 1.28rem);
         line-height: 1.65;
         margin: 24px 0 0;
-        max-width: 1100px;
+        max-width: 980px;
         position: relative;
         z-index: 1;
       }
@@ -181,8 +184,9 @@
         box-shadow: inset 0 1px 0 rgba(255, 250, 240, 0.14);
         display: grid;
         gap: 14px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         min-height: 100%;
-        padding: 22px;
+        padding: 14px;
         position: relative;
         z-index: 1;
       }
@@ -191,7 +195,7 @@
         background: rgba(255, 250, 240, 0.12);
         border: 1px solid rgba(255, 250, 240, 0.16);
         border-radius: 22px;
-        padding: 18px;
+        padding: 15px;
       }
 
       .proof-card span {
@@ -206,13 +210,15 @@
 
       .proof-card strong {
         display: block;
-        font-size: clamp(1.25rem, 1.7vw, 2rem);
+        font-size: clamp(1.05rem, 1.35vw, 1.55rem);
         letter-spacing: -0.05em;
         margin-bottom: 8px;
       }
 
       .proof-card p {
         color: rgba(255, 250, 240, 0.7);
+        font-size: 0.94rem;
+        line-height: 1.5;
         margin: 0;
       }
 
@@ -226,7 +232,199 @@
         gap: 18px;
         grid-template-columns: minmax(0, 1fr) auto;
         margin-top: 18px;
+        order: 3;
         padding: 20px;
+      }
+
+      .dashboard-board {
+        background: rgba(255, 250, 240, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 34px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 18px;
+        order: 1;
+        padding: clamp(22px, 2.4vw, 40px);
+      }
+
+      .dashboard-header {
+        align-items: end;
+        display: grid;
+        gap: 18px;
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .dashboard-header p {
+        margin-bottom: 0;
+        max-width: 980px;
+      }
+
+      .dash-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .dash-button {
+        background: var(--teal);
+        border-radius: 999px;
+        color: #fffaf0;
+        font-size: 0.9rem;
+        font-weight: 950;
+        padding: 12px 15px;
+        white-space: nowrap;
+      }
+
+      .dash-button.light {
+        background: var(--mint);
+        color: var(--teal-dark);
+      }
+
+      .dash-grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1.15fr 0.9fr 0.95fr;
+      }
+
+      .dash-card {
+        background: #fffdf8;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: 0 12px 34px rgba(24, 33, 31, 0.07);
+        min-height: 160px;
+        padding: 18px;
+      }
+
+      .dash-card.large {
+        grid-row: span 2;
+      }
+
+      .dash-card.wide-card {
+        grid-column: span 2;
+      }
+
+      .dash-card span {
+        color: var(--teal);
+        display: block;
+        font-size: 0.74rem;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .dash-card strong {
+        display: block;
+        font-size: 1.35rem;
+        letter-spacing: -0.04em;
+        margin-bottom: 8px;
+      }
+
+      .status-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .pill {
+        background: var(--mint);
+        border: 1px solid #a7d8c8;
+        border-radius: 999px;
+        color: var(--teal-dark);
+        display: inline-flex;
+        font-size: 0.82rem;
+        font-weight: 950;
+        padding: 7px 10px;
+      }
+
+      .pill.warn {
+        background: #fff1d6;
+        border-color: #e9c579;
+        color: #7a4c0c;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .timeline-step {
+        align-items: start;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 26px minmax(0, 1fr);
+      }
+
+      .timeline-dot {
+        background: var(--teal);
+        border-radius: 999px;
+        box-shadow: 0 0 0 5px var(--mint);
+        height: 10px;
+        margin: 8px auto 0;
+        width: 10px;
+      }
+
+      .timeline-step p {
+        margin: 0;
+      }
+
+      .mini-table {
+        border-collapse: collapse;
+        margin-top: 12px;
+        width: 100%;
+      }
+
+      .mini-table th,
+      .mini-table td {
+        border-bottom: 1px solid #eadfce;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 9px 6px;
+        text-align: left;
+      }
+
+      .mini-table th {
+        color: var(--ink);
+        font-weight: 950;
+      }
+
+      .diff-box {
+        background: #0f3734;
+        border-radius: 16px;
+        color: #ccefe4;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.86rem;
+        line-height: 1.7;
+        margin-top: 12px;
+        overflow: auto;
+        padding: 14px;
+      }
+
+      .metric-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 12px;
+      }
+
+      .metric {
+        background: var(--mint);
+        border-radius: 16px;
+        padding: 12px;
+      }
+
+      .metric b {
+        display: block;
+        font-size: 1.55rem;
+        letter-spacing: -0.05em;
+      }
+
+      .metric small {
+        color: var(--muted);
+        font-weight: 850;
       }
 
       .runtime-banner strong {
@@ -311,6 +509,26 @@
 
       .section {
         margin-top: clamp(18px, 2.4vw, 38px);
+      }
+
+      .grid.section {
+        order: 4;
+      }
+
+      .wide.section {
+        order: 5;
+      }
+
+      .preview.section {
+        order: 6;
+      }
+
+      .panel.section {
+        order: 7;
+      }
+
+      .footer {
+        order: 8;
       }
 
       .wide {
@@ -406,14 +624,28 @@
         .grid,
         .wide,
         .hero,
+        .hero-proof,
+        .dashboard-header,
+        .dash-grid,
         .runtime-banner,
         .preview,
-        .preview-grid {
+        .preview-grid,
+        .metric-grid {
           grid-template-columns: 1fr;
         }
 
         .hero-proof {
           min-height: auto;
+        }
+
+        .dash-actions {
+          justify-content: flex-start;
+        }
+
+        .dash-card.large,
+        .dash-card.wide-card {
+          grid-column: auto;
+          grid-row: auto;
         }
 
         .hero {
@@ -475,6 +707,119 @@
           <p>GitHub Pages is static, but Codespaces can run the FastAPI backend and React dashboard. Windows screen control, Electron tray, microphone wake listener, Ollama, OCR, and the private vault still require your laptop.</p>
         </div>
         <span class="status" id="local-status">Checking local app</span>
+      </section>
+
+      <section class="section dashboard-board">
+        <div class="dashboard-header">
+          <div>
+            <p class="eyebrow">Hosted dashboard preview</p>
+            <h2>Complete Agentic Workflow Dashboard</h2>
+            <p>This static GitHub Pages view now shows the full product dashboard structure judges should expect. The live working version runs from Codespaces or from the Windows installer.</p>
+          </div>
+          <div class="dash-actions">
+            <a class="dash-button" href="https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1">Launch Live Dashboard</a>
+            <a class="dash-button light" href="https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest">Install Desktop Agent</a>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <article class="dash-card large">
+            <span>Live agent timeline</span>
+            <strong>Manager-led repair loop</strong>
+            <p>Shows each autonomous step from perception to verified action.</p>
+            <div class="timeline">
+              <div class="timeline-step">
+                <i class="timeline-dot"></i>
+                <p><b>Perception:</b> failure detected from logs, sample repo, voice command, or GitHub-style payload.</p>
+              </div>
+              <div class="timeline-step">
+                <i class="timeline-dot"></i>
+                <p><b>Reasoning:</b> analyzer classifies severity, memory searches similar incidents, manager plans repair.</p>
+              </div>
+              <div class="timeline-step">
+                <i class="timeline-dot"></i>
+                <p><b>Action:</b> code fixer patches in sandbox, tests run, reviewer and security guardrail validate changes.</p>
+              </div>
+              <div class="timeline-step">
+                <i class="timeline-dot"></i>
+                <p><b>Delivery:</b> rollback plan, voice briefing, PR preview, time saved metric, and knowledge entry are generated.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="dash-card">
+            <span>Voice console</span>
+            <strong>Hey Chinna WakeUp</strong>
+            <p>Wake/sleep mode, spoken replies, transcript, command plan, and emergency stop.</p>
+            <div class="status-row">
+              <i class="pill">Wake phrase</i>
+              <i class="pill">Talk back</i>
+              <i class="pill warn">Approval required</i>
+            </div>
+          </article>
+
+          <article class="dash-card">
+            <span>Screen control</span>
+            <strong>Observe, plan, act</strong>
+            <p>Screenshots, OCR, active-window detection, UI Automation, PyAutoGUI, and safe action queue.</p>
+            <div class="status-row">
+              <i class="pill">OCR</i>
+              <i class="pill">UI targets</i>
+              <i class="pill warn">Blocked risky actions</i>
+            </div>
+          </article>
+
+          <article class="dash-card">
+            <span>Root cause panel</span>
+            <strong>High severity import failure</strong>
+            <p>Affected files, stack trace, confidence, likely cause, and exact repair plan.</p>
+            <div class="metric-grid">
+              <div class="metric"><b>91%</b><small>confidence</small></div>
+              <div class="metric"><b>3</b><small>files checked</small></div>
+              <div class="metric"><b>1</b><small>fix patch</small></div>
+            </div>
+          </article>
+
+          <article class="dash-card">
+            <span>Test evidence</span>
+            <strong>Before failed, after passed</strong>
+            <p>Test command, failing output, retry output, and final passing proof.</p>
+            <div class="diff-box">pytest sample-repo<br />FAILED tests/test_api.py::test_response_contract<br />PASSED after sandbox patch</div>
+          </article>
+
+          <article class="dash-card wide-card">
+            <span>Mistakes and resolutions</span>
+            <strong>Self-correction is visible</strong>
+            <table class="mini-table">
+              <thead>
+                <tr><th>Agent</th><th>Mistake/Error</th><th>Resolution</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Code Fixer</td><td>First patch missed response shape</td><td>Used test feedback to correct schema</td><td>Resolved</td></tr>
+                <tr><td>Security Guardrail</td><td>Detected unrelated env-file risk</td><td>Blocked secret file edits</td><td>Protected</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="dash-card">
+            <span>Rollback plan</span>
+            <strong>Safe revert ready</strong>
+            <p>Lists affected files, revert command, risk notes, and validation steps.</p>
+            <div class="diff-box">git revert &lt;repair-commit&gt;<br />pytest<br />restart service</div>
+          </article>
+
+          <article class="dash-card">
+            <span>Memory vault</span>
+            <strong>Local knowledge base</strong>
+            <p>Stores successful fixes, failed attempts, prevention notes, screenshots, transcripts, and approvals locally.</p>
+          </article>
+
+          <article class="dash-card">
+            <span>PR automation</span>
+            <strong>Preview or real PR</strong>
+            <p>Creates branch, commit summary, PR title/body, test evidence, confidence score, and rollback notes.</p>
+          </article>
+        </div>
       </section>
 
       <section class="grid section">
