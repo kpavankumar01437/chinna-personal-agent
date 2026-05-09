@@ -1,12 +1,17 @@
 {
-  "name": "devpilot-ai-dashboard",
+  "name": "chinna-personal-agent",
   "version": "1.0.0",
+  "description": "Private local voice desktop agent with DevPilot Engineer.",
+  "author": "Pavan",
   "private": true,
+  "main": "electron/main.cjs",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "desktop": "electron .",
+    "dist": "npm run build && electron-builder --win nsis"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
@@ -15,5 +20,57 @@
     "react-dom": "latest",
     "lucide-react": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.pavan.chinna-personal-agent",
+    "productName": "Chinna Personal Agent",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend",
+        "to": "backend",
+        "filter": [
+          "**/*",
+          "!runtime/**/*",
+          "!**/__pycache__/**/*",
+          "!**/.pytest_cache/**/*"
+        ]
+      },
+      {
+        "from": "../sample-repo",
+        "to": "sample-repo",
+        "filter": [
+          "**/*",
+          "!**/__pycache__/**/*",
+          "!**/.pytest_cache/**/*"
+        ]
+      },
+      {
+        "from": "../scripts",
+        "to": "scripts"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
 }

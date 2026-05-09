@@ -1,0 +1,11 @@
+# Optional local desktop/voice stack for OmniPilot Private.
+# Keep backend/requirements.txt lean for CI; install this on the target Windows laptop.
+-r requirements.txt
+pyautogui==0.9.54
+uiautomation==2.0.20
+pyttsx3==2.99
+faster-whisper==1.1.1
+sounddevice==0.5.1
+requests==2.32.5
+pytesseract==0.3.13
+numpy==2.4.4

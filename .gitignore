@@ -8,6 +8,7 @@ venv/
 # Node
 node_modules/
 frontend/dist/
+frontend/release/
 npm-debug.log*
 
 # Runtime data
