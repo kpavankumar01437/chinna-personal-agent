@@ -10,6 +10,7 @@ node_modules/
 frontend/dist/
 frontend/release/
 npm-debug.log*
+site/
 
 # Runtime data
 runtime/
