@@ -53,12 +53,13 @@
 
       .shell {
         margin: 0 auto;
-        max-width: 1560px;
-        padding: 30px;
+        max-width: none;
+        padding: clamp(18px, 2.4vw, 46px);
         width: 100%;
       }
 
       .hero {
+        align-content: end;
         background:
           linear-gradient(135deg, rgba(20, 107, 99, 0.96), rgba(15, 55, 52, 0.98)),
           var(--teal-dark);
@@ -66,9 +67,12 @@
         border-radius: 34px;
         box-shadow: var(--shadow);
         color: #fffaf0;
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+        gap: clamp(28px, 5vw, 84px);
         overflow: hidden;
-        min-height: 430px;
-        padding: 42px;
+        min-height: min(680px, 70vh);
+        padding: clamp(30px, 4.2vw, 76px);
         position: relative;
       }
 
@@ -117,21 +121,21 @@
       }
 
       h1 {
-        font-size: clamp(4.2rem, 8vw, 8.8rem);
+        font-size: clamp(5rem, 8.6vw, 12rem);
         letter-spacing: -0.08em;
         line-height: 0.88;
         margin: 0;
-        max-width: 850px;
+        max-width: 1050px;
         position: relative;
         z-index: 1;
       }
 
       .hero-copy {
         color: rgba(255, 250, 240, 0.78);
-        font-size: 1.15rem;
+        font-size: clamp(1.08rem, 1.15vw, 1.45rem);
         line-height: 1.65;
         margin: 24px 0 0;
-        max-width: 980px;
+        max-width: 1100px;
         position: relative;
         z-index: 1;
       }
@@ -167,6 +171,49 @@
         gap: 16px;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         margin-top: 18px;
+      }
+
+      .hero-proof {
+        align-self: stretch;
+        background: rgba(255, 250, 240, 0.1);
+        border: 1px solid rgba(255, 250, 240, 0.16);
+        border-radius: 30px;
+        box-shadow: inset 0 1px 0 rgba(255, 250, 240, 0.14);
+        display: grid;
+        gap: 14px;
+        min-height: 100%;
+        padding: 22px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .proof-card {
+        background: rgba(255, 250, 240, 0.12);
+        border: 1px solid rgba(255, 250, 240, 0.16);
+        border-radius: 22px;
+        padding: 18px;
+      }
+
+      .proof-card span {
+        color: #bce4d8;
+        display: block;
+        font-size: 0.76rem;
+        font-weight: 950;
+        letter-spacing: 0.1em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .proof-card strong {
+        display: block;
+        font-size: clamp(1.25rem, 1.7vw, 2rem);
+        letter-spacing: -0.05em;
+        margin-bottom: 8px;
+      }
+
+      .proof-card p {
+        color: rgba(255, 250, 240, 0.7);
+        margin: 0;
       }
 
       .runtime-banner {
@@ -230,7 +277,7 @@
         border: 1px solid var(--line);
         border-radius: 24px;
         box-shadow: 0 14px 44px rgba(24, 33, 31, 0.08);
-        padding: 22px;
+        padding: clamp(20px, 2vw, 34px);
       }
 
       .card span {
@@ -263,7 +310,7 @@
       }
 
       .section {
-        margin-top: 34px;
+        margin-top: clamp(18px, 2.4vw, 38px);
       }
 
       .wide {
@@ -279,9 +326,9 @@
         border-radius: 28px;
         color: #fffaf0;
         display: grid;
-        gap: 14px;
+        gap: clamp(18px, 2vw, 30px);
         grid-template-columns: 0.8fr 1.2fr;
-        padding: 24px;
+        padding: clamp(24px, 2.8vw, 44px);
       }
 
       .preview h2,
@@ -358,10 +405,15 @@
 
         .grid,
         .wide,
+        .hero,
         .runtime-banner,
         .preview,
         .preview-grid {
           grid-template-columns: 1fr;
+        }
+
+        .hero-proof {
+          min-height: auto;
         }
 
         .hero {
@@ -378,23 +430,42 @@
   <body>
     <main class="shell">
       <section class="hero">
-        <div class="brand">
-          <div class="logo">C</div>
-          <div>
-            <p class="eyebrow">Agentathon 2026 submission</p>
-            <strong>DevPilot AI + OmniPilot Private</strong>
+        <div>
+          <div class="brand">
+            <div class="logo">C</div>
+            <div>
+              <p class="eyebrow">Agentathon 2026 submission</p>
+              <strong>DevPilot AI + OmniPilot Private</strong>
+            </div>
+          </div>
+          <h1>Chinna Personal Agent</h1>
+          <p class="hero-copy">
+            A local-first Windows desktop agent that wakes by voice, talks back, observes your screen with OCR, controls desktop actions with safety approval, and delegates software repair to a multi-agent DevPilot workflow.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1">Run on GitHub</a>
+            <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest">Download Windows App</a>
+            <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent">Open Source Code</a>
+            <a class="button secondary" href="http://127.0.0.1:5173">Open Local Dashboard</a>
+            <a class="button secondary" href="https://github.com/kpavankumar01437/chinna-personal-agent/tree/main/docs">Read Docs</a>
           </div>
         </div>
-        <h1>Chinna Personal Agent</h1>
-        <p class="hero-copy">
-          A local-first Windows desktop agent that wakes by voice, talks back, observes your screen with OCR, controls desktop actions with safety approval, and delegates software repair to a multi-agent DevPilot workflow.
-        </p>
-        <div class="actions">
-          <a class="button" href="https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1">Run on GitHub</a>
-          <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest">Download Windows App</a>
-          <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent">Open Source Code</a>
-          <a class="button secondary" href="http://127.0.0.1:5173">Open Local Dashboard</a>
-          <a class="button secondary" href="https://github.com/kpavankumar01437/chinna-personal-agent/tree/main/docs">Read Docs</a>
+        <div class="hero-proof" aria-label="Project proof points">
+          <article class="proof-card">
+            <span>GitHub runnable</span>
+            <strong>Codespaces web app</strong>
+            <p>Starts the FastAPI backend and React dashboard from the repository with forwarded ports.</p>
+          </article>
+          <article class="proof-card">
+            <span>Desktop deliverable</span>
+            <strong>Windows installer</strong>
+            <p>Release artifact packages the Electron app, backend sidecar, sample repo, and local scripts.</p>
+          </article>
+          <article class="proof-card">
+            <span>Agentathon proof</span>
+            <strong>CI verified</strong>
+            <p>Backend tests, frontend build, Pages deploy, installer workflow, and release assets are published.</p>
+          </article>
         </div>
       </section>
 
