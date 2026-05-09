@@ -1,5 +1,7 @@
 # DevPilot AI + OmniPilot Private
 
+[Run on GitHub Codespaces](https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1) | [Project Page](https://kpavankumar01437.github.io/chinna-personal-agent/) | [Windows Installer Releases](https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest)
+
 DevPilot AI is an autonomous multi-agent DevOps repair platform. It detects failing software, classifies incident severity, reasons through the root cause, repairs code in a sandbox, verifies the fix with tests, explains mistakes and resolutions, generates rollback notes, estimates time saved, stores incident memory, and prepares a GitHub PR.
 
 OmniPilot Private extends DevPilot into a local-first Windows desktop operator. It wakes on `Hey Chinna WakeUp`, sleeps on `sleep`, stores private data in a local vault, observes the active screen with screenshots/OCR/UI Automation, controls the screen through supervised actions, speaks replies, and delegates code repair work to DevPilot Engineer.
@@ -36,6 +38,14 @@ Use GitHub Codespaces for the GitHub-hosted version:
 Codespaces starts the FastAPI backend on port `8000` and the React dashboard on port `5173`. Open the forwarded `5173` port to use the dashboard.
 
 Important limitation: GitHub can run the web dashboard and backend workflow, but it cannot control your Windows desktop, listen to your local microphone, use your private AppData vault, or run the Electron tray app. Those privacy and screen-control features must run on your laptop.
+
+### One Command Local Web Run
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-chinna-local.ps1
+```
+
+This starts the FastAPI backend and React dashboard, then opens `http://127.0.0.1:5173`.
 
 ### Backend
 
@@ -109,6 +119,7 @@ GITHUB_OWNER=
 GITHUB_REPO=
 GITHUB_BASE_BRANCH=main
 DISCORD_WEBHOOK_URL=
+DESKTOP_VOICE_ENABLED=true
 ```
 
 The app still runs without API keys. In that mode, it uses deterministic local agent behavior and generates a PR draft preview instead of creating a real PR.
@@ -156,5 +167,6 @@ On push or pull request, GitHub runs:
 
 - Backend agent workflow tests.
 - Frontend dashboard production build.
+- Optional Windows installer packaging from `.github/workflows/windows-installer.yml`.
 
 For setup details, see `docs/GITHUB_AUTOMATION.md`.

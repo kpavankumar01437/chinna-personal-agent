@@ -38,3 +38,11 @@ npm run dev:codespaces
 - Ollama running on your laptop.
 
 This split is required by browser and GitHub security rules. GitHub-hosted code cannot take control of a user's private desktop.
+
+## Download The Desktop Build From GitHub
+
+Use the latest release page for the Windows installer:
+
+https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest
+
+If no release asset is present yet, open GitHub Actions and run `Build Windows Installer`. The workflow publishes a downloadable installer artifact.

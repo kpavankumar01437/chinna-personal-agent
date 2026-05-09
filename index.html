@@ -391,6 +391,7 @@
         </p>
         <div class="actions">
           <a class="button" href="https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1">Run on GitHub</a>
+          <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest">Download Windows App</a>
           <a class="button" href="https://github.com/kpavankumar01437/chinna-personal-agent">Open Source Code</a>
           <a class="button secondary" href="http://127.0.0.1:5173">Open Local Dashboard</a>
           <a class="button secondary" href="https://github.com/kpavankumar01437/chinna-personal-agent/tree/main/docs">Read Docs</a>
@@ -478,7 +479,9 @@
         <p>For GitHub-hosted execution, open Codespaces. For full private desktop control, clone the repository and run the local Windows app.</p>
         <ul>
           <li><code>Open https://codespaces.new/kpavankumar01437/chinna-personal-agent?quickstart=1</code></li>
+          <li><code>Download installer from https://github.com/kpavankumar01437/chinna-personal-agent/releases/latest</code></li>
           <li><code>git clone https://github.com/kpavankumar01437/chinna-personal-agent.git</code></li>
+          <li><code>powershell -ExecutionPolicy Bypass -File .\scripts\start-chinna-local.ps1</code></li>
           <li><code>powershell -ExecutionPolicy Bypass -File .\scripts\setup-omnipilot.ps1</code></li>
           <li><code>cd backend; .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000</code></li>
           <li><code>cd frontend; npm install; npm run dev</code></li>
